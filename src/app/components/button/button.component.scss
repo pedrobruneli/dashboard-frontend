@@ -1,0 +1,16 @@
+.custom-button {
+  background: #0094eb;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    background: rgba(#0094eb, 0.8);
+  }
+}
+
+*:focus-visible {
+  outline: #0094eb auto 1px;
+}

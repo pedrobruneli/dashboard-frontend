@@ -1,0 +1,33 @@
+<section class="content">
+  <div class="login-form">
+    <img alt="logo da empresa" class="logo" src="../assets/Logo SVG.svg" />
+    <div class="login-text">
+      <h1 class="title">Entre com sua conta</h1>
+    </div>
+    <div class="login-form-box">
+      <div class="form">
+        <div class="input">
+          <label for="email">Email</label>
+          <input id="email" type="text" />
+        </div>
+        <div class="input">
+          <label for="password">Senha</label>
+          <input id="password" type="password" />
+        </div>
+        <div class="remember">
+          <div class="remember-box">
+            <input id="remember" type="checkbox" />
+            <label for="remember">Manter-me logado</label>
+          </div>
+          <span class="forgot-password" tabindex="0">Esqueceu sua senha?</span>
+        </div>
+        <app-button
+          (click)="login()"
+          width="100%"
+          class="button"
+          label="Entrar"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</section>

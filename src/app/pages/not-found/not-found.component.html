@@ -1,0 +1,29 @@
+<div class="content">
+  <div class="container">
+    <h3>404</h3>
+    <h1>Página não encontrada</h1>
+    <span>Desculpe, não encontramos a página na qual procura.</span>
+    <div class="buttons">
+      <app-button (click)="goHome()" label="Ir para home"></app-button>
+      <div class="contact">
+        <button (click)="callSupport()" class="contact-support">
+          Contatar suporte
+        </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="right-arrow"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="48"
+            d="M268 112l144 144-144 144M392 256H100"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
