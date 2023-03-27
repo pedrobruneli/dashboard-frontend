@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private readonly router: Router) { }
+  constructor(private readonly router: Router) {
+    if (localStorage.getItem('logged') === 'true') {
+      this.router.navigate(['/home'])
+    }
+  }
 
   public login() {
     this.router.navigate(['/home'])
+    localStorage.setItem('logged', 'true')
   }
 }
