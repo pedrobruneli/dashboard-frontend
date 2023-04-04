@@ -1,0 +1,22 @@
+<div class="menu-option">
+  <div class="menu" (click)="toggleClicked()">
+    <div class="menu-left">
+      <img
+        type="image/svg+xml"
+        class="icon"
+        alt="imagem de uma casa"
+        [src]="icon"
+      />
+      <span class="title">{{ label }}</span>
+    </div>
+    <img
+      src="../../../assets/chevron-forward-outline.svg"
+      alt="seta para direita"
+      class="icon arrow"
+      [ngClass]="{ selected: isClicked }"
+    />
+  </div>
+  <div [ngClass]="{ selected: isClicked }" class="menu-selected">
+    <ng-content></ng-content>
+  </div>
+</div>

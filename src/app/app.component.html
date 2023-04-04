@@ -8,45 +8,16 @@
           src="../../../assets/Logo SVG.svg"
         />
         <div class="menu-options">
-          <div
-            [ngClass]="{ 'selected-menu': router.url === '/home' }"
-            class="menu-option"
-            (click)="goTo('home')"
+          <app-dropdown
+            icon="../../../assets/home-outline.svg"
+            label="Home"
+          ></app-dropdown>
+          <app-dropdown
+            icon="../../../assets/file-tray-outline.svg"
+            label="Cadastro"
           >
-            <img
-              type="image/svg+xml"
-              class="icon"
-              alt="imagem de uma casa"
-              src="../../../assets/home-outline.svg"
-              [ngClass]="{ 'selected-icon': router.url === '/home' }"
-            />
-            <span class="title">Home</span>
-          </div>
-          <div
-            [ngClass]="{ 'selected-menu': router.url.includes('/cadastro') }"
-            class="menu-option"
-          >
-            <img
-              type="image/svg+xml"
-              class="icon"
-              alt="imagem de uma casa"
-              src="../../../assets/file-tray-outline.svg"
-              [ngClass]="{ 'selected-icon': router.url.includes('/cadastro') }"
-            />
-            <span class="title">Cadastro</span>
-            <div class="menu-selected">
-              <img
-                type="image/svg+xml"
-                class="icon"
-                alt="imagem de uma casa"
-                src="../../../assets/file-tray-outline.svg"
-                [ngClass]="{
-                  'selected-icon': router.url.includes('/cadastro')
-                }"
-              />
-              <span class="title">Cadastro</span>
-            </div>
-          </div>
+            <span class="title">Clientes</span>
+          </app-dropdown>
         </div>
       </div>
       <div class="menu-bottom">
