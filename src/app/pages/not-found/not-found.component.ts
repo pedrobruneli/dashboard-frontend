@@ -11,7 +11,7 @@ export class NotFoundComponent {
   constructor(private readonly router: Router) { }
 
   public goHome() {
-    this.router.navigate(['home'])
+    this.router.navigate([''])
   }
 
   public callSupport() {

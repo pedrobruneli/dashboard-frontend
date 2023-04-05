@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private readonly router: Router) {
     if (localStorage.getItem('logged') === 'true') {
-      this.router.navigate(['/home'])
+      this.router.navigate([''])
     }
   }
 
   public login() {
-    this.router.navigate(['/home'])
+    this.router.navigate([''])
     localStorage.setItem('logged', 'true')
   }
 }
