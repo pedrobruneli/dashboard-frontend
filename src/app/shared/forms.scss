@@ -1,0 +1,102 @@
+.container {
+  background-color: #ececec;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  .box {
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border: 3px solid #0094eb;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    .top-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      .title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 2rem;
+        text-align: center;
+        color: #0094eb;
+      }
+      .desc {
+        color: #9c9c9c;
+        font-size: 1.25rem;
+      }
+    }
+    .form {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 60px;
+      .plus-icon {
+        border: 3px solid #012e52;
+        padding: 60px;
+        border-radius: 50%;
+      }
+      .register {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 50px;
+        grid-row-gap: 35px;
+        & > input {
+          min-width: 300px;
+          padding: 10px;
+          border: 1px solid #a8a8a8;
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 24px;
+          color: #9c9c9c;
+          &::placeholder {
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 24px;
+            color: #9c9c9c;
+          }
+          &.invalid {
+            border: 1px solid #ff0000;
+          }
+        }
+        .select {
+          border: 1px solid #a8a8a8;
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 24px;
+          color: #9c9c9c;
+          -o-appearance: none;
+          -ms-appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          padding: 10px;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      align-self: flex-end;
+      gap: 30px;
+      .button {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.25rem;
+        background-color: transparent;
+        color: #012e52;
+        border: 1px solid #111827;
+        padding: 8px 50px;
+        &:hover {
+          background-color: rgba(17, 24, 39, 0.1);
+        }
+      }
+    }
+  }
+}

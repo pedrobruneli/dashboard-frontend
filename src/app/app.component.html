@@ -1,1 +1,83 @@
-<router-outlet></router-outlet>
+<div class="content">
+  <nav *ngIf="userLogged">
+    <div class="nav-container">
+      <div class="menu-upper">
+        <img
+          class="logo"
+          alt="logo da empresa"
+          src="../../../assets/Logo SVG.svg"
+        />
+        <div class="menu-options">
+          <div class="menu-option" (click)="goTo('home')">
+            <div class="menu">
+              <div class="menu-left">
+                <img
+                  type="image/svg+xml"
+                  class="icon"
+                  alt="imagem de uma casa"
+                  src="../../../assets/home-outline.svg"
+                />
+                <span class="title">Home</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-option" (click)="goTo('home')">
+            <div class="menu">
+              <div class="menu-left">
+                <img
+                  type="image/svg+xml"
+                  class="icon"
+                  alt="imagem de uma casa"
+                  src="../../../assets/cart.svg"
+                />
+                <span class="title">Vendas</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu-option" (click)="goTo('home')">
+            <div class="menu">
+              <div class="menu-left">
+                <img
+                  type="image/svg+xml"
+                  class="icon"
+                  alt="imagem de um grafico"
+                  src="../assets/bar-chart-outline.svg"
+                />
+                <span class="title">Dashboard</span>
+              </div>
+            </div>
+          </div>
+          <app-dropdown
+            icon="../../../assets/file-tray-outline.svg"
+            label="Cadastro"
+          >
+            <span (click)="goTo('register/product')" class="title"
+              >Produto</span
+            >
+            <span (click)="goTo('register/costumer')" class="title"
+              >Cliente</span
+            >
+            <span (click)="goTo('register/supplier')" class="title"
+              >Fornecedor</span
+            >
+          </app-dropdown>
+        </div>
+      </div>
+      <div class="menu-bottom">
+        <div (click)="logout()" class="menu-option">
+          <img
+            type="image/svg+xml"
+            class="icon"
+            alt="imagem de uma casa"
+            src="../../../assets/exit-outline.svg"
+          />
+          <span class="title">Sair</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="route-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
