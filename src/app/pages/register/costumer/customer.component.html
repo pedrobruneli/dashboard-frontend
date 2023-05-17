@@ -59,8 +59,16 @@
       <img class="plus-icon" src="../../../../../assets/plus-icon.png" />
     </div>
     <footer class="buttons">
-      <button class="button">Salvar</button>
-      <button class="button">Cancelar</button>
+      <p-button
+        [loading]="isLoading"
+        [disabled]="isLoading"
+        styleClass="form-button"
+        (click)="createCustomer()"
+        styleClass="button"
+        >Salvar</p-button
+      >
+      <button (click)="clearForm()" class="button">Limpar</button>
     </footer>
   </div>
 </div>
+<p-toast position="bottom-center"></p-toast>

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register.component';
-import { ProductComponent } from './product/product.component';
-import { CostumerComponent } from './costumer/costumer.component';
 
 const routes: Routes = [
   {
@@ -15,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'costumer',
-    loadChildren: () => import('./costumer/costumer.module').then(m => m.CostumerModule)
+    loadChildren: () => import('./costumer/customer.module').then(m => m.CustomerModule)
   },
   {
     path: 'supplier',

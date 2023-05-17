@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { ProductComponent } from './product.component';
 import { ProductRoutingModule } from './product.routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideNgxMask, NgxMaskDirective } from 'ngx-mask';
-import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { ButtonModule } from 'primeng/button';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -18,8 +20,10 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
         SharedModule,
         ReactiveFormsModule,
         NgxMaskDirective,
-        CurrencyMaskModule
+        FormsModule,
+        ButtonModule,
+        ToastModule
     ],
-    providers: [provideNgxMask()]
+    providers: [provideNgxMask(), MessageService]
 })
 export class ProductModule { }

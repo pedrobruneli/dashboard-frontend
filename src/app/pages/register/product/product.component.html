@@ -19,15 +19,10 @@
         />
         <input
           formControlName="cost_price"
-          currencyMask
           type="text"
           placeholder="Valor de custo unitário"
-          [options]="{
-            prefix: 'R$ ',
-            thousands: '.',
-            decimal: ',',
-            align: 'left'
-          }"
+          mask="separator.2"
+          thousandSeparator=""
           [class.invalid]="
             form.get('cost_price')?.invalid && form.get('cost_price')?.touched
           "
@@ -41,18 +36,13 @@
           "
         />
         <input
-          formControlName="sell_price"
-          currencyMask
+          formControlName="sale_price"
           type="text"
-          [options]="{
-            prefix: 'R$ ',
-            thousands: '.',
-            decimal: ',',
-            align: 'left'
-          }"
           placeholder="Valor de venda unitário"
+          thousandSeparator=""
+          mask="separator.2"
           [class.invalid]="
-            form.get('sell_price')?.invalid && form.get('sell_price')?.touched
+            form.get('sale_price')?.invalid && form.get('sale_price')?.touched
           "
         />
         <input
@@ -74,15 +64,30 @@
             form.get('qnt_in_stock')?.touched
           "
         />
-        <select class="select">
+        <select
+          [(ngModel)]="supplierSelected"
+          [ngModelOptions]="{ standalone: true }"
+          class="select"
+        >
           <option value="" disabled selected>Fornecedor</option>
+          <option *ngFor="let supplier of suppliers" [ngValue]="supplier.id">
+            {{ supplier.fantasy_name }}
+          </option>
         </select>
       </form>
       <img class="plus-icon" src="../../../../../assets/plus-icon.png" />
     </div>
     <footer class="buttons">
-      <button class="button">Salvar</button>
-      <button class="button">Cancelar</button>
+      <p-button
+        [loading]="isLoading"
+        [disabled]="isLoading"
+        styleClass="form-button"
+        (click)="createProduct()"
+        styleClass="button"
+        >Salvar</p-button
+      >
+      <button (click)="clearForm()" class="button">Limpar</button>
     </footer>
   </div>
 </div>
+<p-toast position="bottom-center"></p-toast>

@@ -10,11 +10,21 @@
     <div class="form">
       <form [formGroup]="form" class="register">
         <input
-          formControlName="name"
+          formControlName="fantasy_name"
           type="text"
-          placeholder="Nome da empresa"
+          placeholder="Nome Fantasia"
           [class.invalid]="
-            form.get('name')?.invalid && form.get('name')?.touched
+            form.get('fantasy_name')?.invalid &&
+            form.get('fantasy_name')?.touched
+          "
+        />
+        <input
+          formControlName="corporate_name"
+          type="text"
+          placeholder="Razão Social"
+          [class.invalid]="
+            form.get('corporate_name')?.invalid &&
+            form.get('corporate_name')?.touched
           "
         />
         <input
@@ -47,8 +57,16 @@
       <img class="plus-icon" src="../../../../../assets/plus-icon.png" />
     </div>
     <footer class="buttons">
-      <button class="button">Salvar</button>
-      <button class="button">Cancelar</button>
+      <p-button
+        [loading]="isLoading"
+        [disabled]="isLoading"
+        styleClass="form-button"
+        (click)="createSupplier()"
+        styleClass="button"
+        >Salvar</p-button
+      >
+      <button (click)="clearForm()" class="button">Limpar</button>
     </footer>
   </div>
 </div>
+<p-toast position="bottom-center"></p-toast>
