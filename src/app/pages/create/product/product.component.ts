@@ -19,8 +19,8 @@ export class ProductComponent implements OnInit {
 
   public form = new FormGroup({
     name: new FormControl('', Validators.required),
-    cost_price: new FormControl('', [Validators.required, Validators.pattern(/([0-9]{1,}\.[0-9]{2})|([0-9]{1,})/g)]),
-    sale_price: new FormControl('', [Validators.required, Validators.pattern(/([0-9]{1,}\.[0-9]{2})|([0-9]{1,})/g)]),
+    cost_price: new FormControl('', [Validators.required, Validators.pattern(/([0-9]{1,}(\.|,)[0-9]{2})|([0-9]{1,})/g)]),
+    sale_price: new FormControl('', [Validators.required, Validators.pattern(/([0-9]{1,}(\.|,)[0-9]{2})|([0-9]{1,})/g)]),
     description: new FormControl('', [Validators.required]),
     code: new FormControl('', [Validators.required]),
     qnt_in_stock: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}')]),
@@ -35,6 +35,7 @@ export class ProductComponent implements OnInit {
   }
 
   public createProduct() {
+    console.log(this.form.get('cost_price'))
     if(!this.form.valid || !this.supplierSelected) {
       this.messageService.add({severity:'error', summary:'Erro', detail:'Preencha os dados corretamente!'});
       return

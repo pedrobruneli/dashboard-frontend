@@ -6,3 +6,7 @@ export interface IProduct {
     code:         string
     qnt_in_stock: number
 }
+
+export interface ISellProduct extends IProduct {
+    quantity: number
+}

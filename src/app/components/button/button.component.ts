@@ -9,6 +9,5 @@ export class ButtonComponent {
 
   @Input() label = '';
   @Input() width = '';
-  @Output() click = new EventEmitter();
 
 }

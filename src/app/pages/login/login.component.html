@@ -8,17 +8,13 @@
       <div class="form">
         <div class="input">
           <label for="email">Email</label>
-          <input id="email" type="text" />
+          <input [(ngModel)]="email" id="email" type="text" />
         </div>
         <div class="input">
           <label for="password">Senha</label>
-          <input id="password" type="password" />
+          <input [(ngModel)]="password" id="password" type="password" />
         </div>
         <div class="remember">
-          <div class="remember-box">
-            <input id="remember" type="checkbox" />
-            <label for="remember">Manter-me logado</label>
-          </div>
           <span class="forgot-password" tabindex="0">Esqueceu sua senha?</span>
         </div>
         <app-button
@@ -31,3 +27,4 @@
     </div>
   </div>
 </section>
+<p-toast position="bottom-center"></p-toast>

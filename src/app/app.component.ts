@@ -8,23 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public userLogged = localStorage.getItem('logged') === 'true' ?? false;
+  public route = this.router.url.split('/')[1];
 
   constructor(public readonly router: Router) {
     router.events.subscribe(() => {
-      this.userLogged = localStorage.getItem('logged') === 'true' ?? false;
+      this.route = this.router.url.split('/')[1];
     })
   }
 
   public goTo(route: string) {
     this.router.navigate([route])
-    this.userLogged = true
+    this.route = route
   }
 
   public logout() {
     this.router.navigate(['login'])
     localStorage.setItem('logged', 'false');
-    this.userLogged = false
   }
 
 }
