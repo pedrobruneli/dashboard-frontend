@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -19,6 +20,10 @@ export class AppComponent {
   public goTo(route: string) {
     this.router.navigate([route])
     this.route = route
+  }
+
+  public goDashboard() {
+    window.open(environment.dashboardLink, '_blank')
   }
 
   public logout() {

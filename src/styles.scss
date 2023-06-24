@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap");
 @import url("./reset.scss");
-@import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
@@ -21,4 +20,25 @@ app-root {
 .spinner {
   width: 20px !important;
   height: 20px !important;
+}
+
+.pencil {
+  content: url("../node_modules/primeicons/raw-svg/pencil.svg");
+  width: 15px;
+  height: 15px;
+}
+.check {
+  content: url("../node_modules/primeicons/raw-svg/check.svg");
+  width: 15px;
+  height: 15px;
+}
+.times {
+  content: url("../node_modules/primeicons/raw-svg/times.svg");
+  width: 15px;
+  height: 15px;
+}
+.trash {
+  content: url("../node_modules/primeicons/raw-svg/trash.svg");
+  width: 15px;
+  height: 15px;
 }

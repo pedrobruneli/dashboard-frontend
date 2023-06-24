@@ -1,4 +1,5 @@
 export interface IProduct {
+    id: string
     name:         string
     cost_price:   number
     sale_price:   number
@@ -8,5 +9,10 @@ export interface IProduct {
 }
 
 export interface ISellProduct extends IProduct {
+    quantity: number
+}
+
+export interface ISellProductRequest {
+    productId: string
     quantity: number
 }

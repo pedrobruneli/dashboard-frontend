@@ -13,10 +13,8 @@ export class AuthGuard {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const token = localStorage.getItem('token');
-    if (token) {
-      if(route.root.firstChild?.routeConfig?.path === 'login')
-        this.router.navigate(['']);
-      return !this.jwtHelper.isTokenExpired(token)
+    if (!this.jwtHelper.isTokenExpired(token)) {
+      return true
     }
     this.router.navigate(['login']);
     return false;

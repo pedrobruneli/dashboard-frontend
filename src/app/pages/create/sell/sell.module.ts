@@ -11,9 +11,11 @@ import { DialogModule } from 'primeng/dialog'
 import { SellComponent } from './sell.component';
 import { SellRoutingModule } from './sell.routing.module';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalculateTotalPipe } from 'src/app/pipes/calculateTotal.pipe';
 
 @NgModule({
-    declarations: [SellComponent],
+    declarations: [SellComponent, CalculateTotalPipe],
     imports: [
         CommonModule,
         SharedModule,
@@ -24,7 +26,8 @@ import { InputTextModule } from 'primeng/inputtext';
         TableModule,
         DialogModule,
         InputTextModule,
-        FormsModule
+        FormsModule,
+        DropdownModule
     ],
     providers: [provideNgxMask(), MessageService]
 })

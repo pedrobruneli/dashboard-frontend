@@ -13,7 +13,26 @@
           (input)="filter($event)"
           placeholder="Search keyword"
         />
-        <p-button (onClick)="toggleVisible()">Adicionar produto</p-button>
+        <h2>Total: R$ {{ selectedProducts | calculateTotal }}</h2>
+        <div class="buttons">
+          <p-dropdown
+            [options]="customers"
+            [(ngModel)]="selectedCustomer"
+            optionLabel="name"
+            [lazy]="true"
+            placeholder="Cliente"
+          ></p-dropdown>
+          <p-button
+            label="Adicionar produto"
+            (onClick)="toggleVisible()"
+          ></p-button>
+          <p-button
+            label="Vender"
+            styleClass="p-button-success"
+            (onClick)="sell()"
+            [disabled]="isSelling"
+          ></p-button>
+        </div>
       </div>
     </ng-template>
     <ng-template pTemplate="header">
@@ -33,10 +52,19 @@
         <th style="width: 20%"></th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product let-editing="editing">
+    <ng-template
+      pTemplate="body"
+      let-product
+      let-editing="editing"
+      let-ri="rowIndex"
+    >
       <tr [pEditableRow]="selectedProducts">
-        <td>{{ product.code }}</td>
-        <td>{{ product.name }}</td>
+        <td>
+          {{ product.code }}
+        </td>
+        <td>
+          {{ product.name }}
+        </td>
         <td>
           <p-cellEditor>
             <ng-template pTemplate="input">
@@ -47,18 +75,49 @@
             </ng-template>
           </p-cellEditor>
         </td>
-        <td>{{ product.sale_price | currency : "BRL" }}</td>
         <td>
-          <div class="flex align-items-center justify-content-center gap-2">
+          {{ product.sale_price | currency : "BRL" }}
+        </td>
+        <td>
+          <div class="edit-button">
             <button
               *ngIf="!editing"
               pButton
               pRipple
               type="button"
-              icon="pi pi-pencil"
-              pInitEditableRow
+              icon="pi pencil"
               (click)="onRowEditInit(product)"
+              pInitEditableRow
               class="p-button-rounded p-button-text"
+            ></button>
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pSaveEditableRow
+              icon="pi check"
+              (click)="onRowEditSave(product, ri)"
+              class="p-button-rounded p-button-text p-button-success mr-2"
+            ></button>
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pCancelEditableRow
+              icon="pi times"
+              (click)="onRowEditCancel(product, ri)"
+              class="p-button-rounded p-button-text p-button-danger"
+            ></button>
+            <button
+              *ngIf="!editing"
+              pButton
+              pRipple
+              type="button"
+              icon="pi trash"
+              (click)="onRemoveProduct(product)"
+              class="p-button-rounded p-button-text p-button-danger"
             ></button>
           </div>
         </td>

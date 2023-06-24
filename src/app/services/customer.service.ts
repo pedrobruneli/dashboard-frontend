@@ -13,4 +13,8 @@ export class CustomerService {
     public createCustomer(customer: ICustomer): Observable<ICustomer> {
         return this.httpService.post<ICustomer>(`${environment.api}/customers`, customer)
     }
+
+    public listCustomers(): Observable<ICustomer[]> {
+        return this.httpService.get<ICustomer[]>(`${environment.api}/customers`)
+    }
 }
